@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/', include('medical_cases_recognition.apps.home.urls')),
     url(r'^departments/', include('medical_cases_recognition.apps.departments.urls')),
-    url(r'^services/', include('medical_cases_recognition.apps.services.urls'))
+    url(r'^services/', include('medical_cases_recognition.apps.services.urls')),
+    url(r'^detection/', include('medical_cases_recognition.apps.detection.urls'))
 ]
