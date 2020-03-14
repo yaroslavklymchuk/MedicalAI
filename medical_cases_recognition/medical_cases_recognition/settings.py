@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'medical_cases_recognition.apps.home'
+    'medical_cases_recognition.apps.home',
+    'medical_cases_recognition.apps.departments',
+    'medical_cases_recognition.apps.detection'
 ]
 
 MIDDLEWARE = [
@@ -127,6 +129,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
+
+
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+MEDIA_URL = '/media/'
 
 
 STATICFILES_FINDERS = (
