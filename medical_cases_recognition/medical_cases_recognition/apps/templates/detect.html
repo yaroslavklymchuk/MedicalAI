@@ -88,6 +88,7 @@
                 <div class="col-lg-9">
                     <form method="post" enctype="multipart/form-data">
                         {{ form.as_p }}
+                        {{ result }}
                         {% csrf_token %}
                         <div class="col-md-12 text-right">
                             <button type="submit" value="submit" class="btn submit_btn">Send Request</button>
