@@ -7,6 +7,7 @@ def get_model(mdl, weights, path_mdl, path_weights):
     json_file.close()
     loaded_model = model_from_json(loaded_model_json)
     loaded_model.load_weights(path_weights+weights)
+    loaded_model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
     return loaded_model
 
