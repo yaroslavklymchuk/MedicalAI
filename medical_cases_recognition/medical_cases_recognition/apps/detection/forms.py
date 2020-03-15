@@ -1,5 +1,5 @@
 from django import forms
-from .models import DetectionModel, ResultsDetectionModel
+from .models import DetectionModel
 
 
 class DetectionForm(forms.ModelForm):
@@ -13,11 +13,3 @@ class DetectionForm(forms.ModelForm):
         self.fields['img_to_detect'].required = False
 
 
-class ResultsDetectionForm(forms.ModelForm):
-
-    class Meta:
-        model = ResultsDetectionModel
-        exclude = [""]
-        widgets = {
-            'result': forms.Textarea(attrs={'rows': 4, 'cols': 15}),
-        }

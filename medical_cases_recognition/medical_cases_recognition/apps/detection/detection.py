@@ -12,11 +12,11 @@ def get_model(mdl, weights, path_mdl, path_weights):
     return loaded_model
 
 
-def predict(mdl, img, cutoff):
+def predict(mdl, img, cutoff, decision):
     prediction = mdl.predict(img)[0][0]
 
     if prediction >= cutoff:
-        return 'Pneumonia'
+        return decision
     else:
-        return 'No Pneumonia'
+        return 'No {}'.format(decision)
 
