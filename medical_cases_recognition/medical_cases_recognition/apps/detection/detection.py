@@ -1,4 +1,5 @@
 from tensorflow.keras.models import model_from_json
+from ...tools.logging_config import logger
 
 
 def get_model(mdl, weights, path_mdl, path_weights):
@@ -14,6 +15,8 @@ def get_model(mdl, weights, path_mdl, path_weights):
 
 def predict(mdl, img, cutoff, decision):
     prediction = mdl.predict(img)[0][0]
+
+    logger.info('Predicted probability: {}'.format(prediction))
 
     if prediction >= cutoff:
         return decision

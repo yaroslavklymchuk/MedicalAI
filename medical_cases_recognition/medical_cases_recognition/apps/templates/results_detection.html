@@ -80,14 +80,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                    {% if result == 'Pneumonia' %}
+                    {% if result == 'Pneumonia' or result == 'No Pneumonia' %}
                     <img src="../../static/img/pneumonia.jpg" width="300" height="350" style="float: right">
                         <div style="clear: left">
                     <h3>Examination revealed that the patient had {{ result }}.</h3>
-                    <h3>Contact your doctor immediately</h3>
+                            {% if result ==  'Pneumonia'%}
+                    <h3>Contact your doctor immediately.</h3>
+                                {% else %}
+                                <h3>Have a nice day!</h3>
+                                {% endif %}
                 </div>
-                    {% else %}
-                    <img src="../../static/img/diabet.jpg" width="300" height="450" align="right">
+                        {% endif %}
+                    {% if result == 'Diabetic' or result == 'No Diabetic' %}
+                    <img src="../../static/img/diabet.jpg" width="300" height="350" style="float: right">
+                         <div style="clear: left">
+                    <h3>Examination revealed that the patient had {{ result }}.</h3>
+                            {% if result ==  'Diabetic'%}
+                    <h3>Contact your doctor immediately.</h3>
+                                {% else %}
+                                <h3>Have a nice day!</h3>
+                                {% endif %}
+                </div>
                     {% endif %}
                 </div>
             </div>
