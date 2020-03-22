@@ -80,7 +80,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                    {% if result == 'Pneumonia' or result == 'No Pneumonia' %}
+                    {% if problem == 'Pneumonia' %}
                     <img src="../../static/img/pneumonia.jpg" width="300" height="350" style="float: right">
                         <div style="clear: left">
                     <h3>Examination revealed that the patient had {{ result }}.</h3>
@@ -91,11 +91,11 @@
                                 {% endif %}
                 </div>
                         {% endif %}
-                    {% if result == 'Diabetic' or result == 'No Diabetic' %}
+                    {% if problem == 'Diabetic' %}
                     <img src="../../static/img/diabet.jpg" width="300" height="350" style="float: right">
                          <div style="clear: left">
                     <h3>Examination revealed that the patient had {{ result }}.</h3>
-                            {% if result ==  'Diabetic'%}
+                            {% if result !=  'No_DR'%}
                     <h3>Contact your doctor immediately.</h3>
                                 {% else %}
                                 <h3>Have a nice day!</h3>

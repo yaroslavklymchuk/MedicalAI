@@ -10,9 +10,9 @@ def ResponseForDetection(request):
         if form.is_valid():
             form.save()
             result_form = DetectionForm()
-            result = make_prediction(request)
+            result, problem = make_prediction(request)
 
-            return render(request, "results_detection.html", {'form': result_form, 'result': result}
+            return render(request, "results_detection.html", {'form': result_form, 'result': result, 'problem': problem}
                           )
         else:
             return HttpResponse('image upload failed with errors: {}'.format(form.errors))

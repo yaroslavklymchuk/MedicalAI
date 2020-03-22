@@ -2,6 +2,14 @@ from tensorflow.keras.models import model_from_json
 from ...tools.logging_config import logger
 
 
+diabet_decisions_mapping = {0: 'Mild',
+                            1: 'Severe',
+                            2: 'Proliferate_DR',
+                            3: 'No_DR',
+                            4: 'Moderate'
+                            }
+
+
 def get_model(mdl, weights, path_mdl, path_weights):
     json_file = open(path_mdl+mdl, 'r')
     loaded_model_json = json_file.read()
@@ -13,7 +21,7 @@ def get_model(mdl, weights, path_mdl, path_weights):
     return loaded_model
 
 
-def predict(mdl, img, cutoff, decision):
+def predict_x_ray(mdl, img, cutoff, decision):
     prediction = mdl.predict(img)[0][0]
 
     logger.info('Predicted probability: {}'.format(prediction))
@@ -22,4 +30,13 @@ def predict(mdl, img, cutoff, decision):
         return decision
     else:
         return 'No {}'.format(decision)
+
+
+def predict_diabet(mdl, img):
+    prediction = mdl.predict(img).argmax()
+    mapped_prediction = diabet_decisions_mapping.get(prediction)
+
+    logger.info('Predicted probability: {}'.format(mdl.predict(img).max()))
+
+    return mapped_prediction
 
