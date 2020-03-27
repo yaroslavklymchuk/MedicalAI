@@ -5,7 +5,8 @@ from multiselectfield import MultiSelectField
 class DetectionModel(models.Model):
     OPTIONS = (
         ('Pneumonia', "Pn"),
-        ('Diabetic', "Di")
+        ('Diabetic', "Di"),
+        ('Hemorrhage', "He")
     )
     name = models.CharField(name='name', max_length=150)
     email = models.EmailField(name='email')

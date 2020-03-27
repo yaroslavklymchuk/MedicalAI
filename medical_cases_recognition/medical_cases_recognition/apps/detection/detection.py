@@ -4,10 +4,18 @@ from ...tools.logging_config import logger
 
 diabet_decisions_mapping = {0: 'Mild',
                             1: 'Severe',
-                            2: 'Proliferate_DR',
-                            3: 'No_DR',
+                            2: 'Proliferate DR',
+                            3: 'No DR',
                             4: 'Moderate'
                             }
+
+hemorrhage_decisions_mapping = {0: 'Epidural Hemorrhage',
+                                1: 'Intraparenchymal Hemorrhage',
+                                2: 'Intraventricular Hemorrhage',
+                                3: 'Subarachnoid Hemorrhage',
+                                4: 'Subdural Hemorrhage',
+                                5: 'No Hemorrhage'
+                                }
 
 
 def get_model(mdl, weights, path_mdl, path_weights):
@@ -32,9 +40,9 @@ def predict_x_ray(mdl, img, cutoff, decision):
         return 'No {}'.format(decision)
 
 
-def predict_diabet(mdl, img):
+def predict_categorical_problem(mdl, img, decisions_mapping):
     prediction = mdl.predict(img).argmax()
-    mapped_prediction = diabet_decisions_mapping.get(prediction)
+    mapped_prediction = decisions_mapping.get(prediction)
 
     logger.info('Predicted probability: {}'.format(mdl.predict(img).max()))
 

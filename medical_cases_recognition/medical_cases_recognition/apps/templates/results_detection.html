@@ -95,7 +95,18 @@
                     <img src="../../static/img/diabet.jpg" width="300" height="350" style="float: right">
                          <div style="clear: left">
                     <h3>Examination revealed that the patient had {{ result }}.</h3>
-                            {% if result !=  'No_DR'%}
+                            {% if result !=  'No DR'%}
+                    <h3>Contact your doctor immediately.</h3>
+                                {% else %}
+                                <h3>Have a nice day!</h3>
+                                {% endif %}
+                </div>
+                    {% endif %}
+                {% if problem == 'Hemorrhage' %}
+                    <img src="../../static/img/hemorrhage.jpg" width="300" height="350" style="float: right">
+                         <div style="clear: left">
+                    <h3>Examination revealed that the patient had {{ result }}.</h3>
+                            {% if result !=  'No Hemorrhage' %}
                     <h3>Contact your doctor immediately.</h3>
                                 {% else %}
                                 <h3>Have a nice day!</h3>
