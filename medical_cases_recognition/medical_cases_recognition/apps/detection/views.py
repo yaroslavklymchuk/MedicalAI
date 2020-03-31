@@ -5,8 +5,7 @@ from .prediction_processing import make_prediction
 from datetime import datetime
 from ...tools.logging_config import logger
 from django.shortcuts import redirect
-from django.contrib.auth import authenticate
-from ..subscribe.models import General, User
+from ..subscribe.models import User
 
 
 def ResponseForDetection(request):
@@ -22,6 +21,8 @@ def ResponseForDetection(request):
                                         last_name=last_name,
                                         email=email)
 
+                logger.info('AUTH: {}'.format(user))
+
                 form.created = datetime.now()
                 form.save()
 
@@ -31,8 +32,6 @@ def ResponseForDetection(request):
                 logger.info('Result for {}: {}'.format(problem, result))
                 result_form = Results.objects.create(email=email, created=datetime.now(), result=result)
                 result_form.save()
-
-                logger.info('AUTH: {}'.format(user))
 
                 return render(request, "results_detection.html", {'form': raw_detection_form,
                                                                   'result': result,
