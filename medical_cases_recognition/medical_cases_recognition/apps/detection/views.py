@@ -6,7 +6,7 @@ from datetime import datetime
 from ...tools.logging_config import logger
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate
-from ..subscribe.models import General
+from ..subscribe.models import General, User
 
 
 def ResponseForDetection(request):
@@ -17,25 +17,29 @@ def ResponseForDetection(request):
             last_name = form.data['last_name']
             email = form.data['email']
 
-            form.created = datetime.now()
-            form.save()
+            try:
+                user = User.objects.get(first_name=first_name,
+                                        last_name=last_name,
+                                        email=email)
 
-            raw_detection_form = DetectionForm()
-            result, problem = make_prediction(request)
+                form.created = datetime.now()
+                form.save()
 
-            logger.info('Result for {}: {}'.format(problem, result))
-            result_form = Results.objects.create(email=email, created=datetime.now(), result=result)
-            result_form.save()
+                raw_detection_form = DetectionForm()
+                result, problem = make_prediction(request)
 
-            logger.info('AUTH: {}'.format(request.user.is_authenticated))
+                logger.info('Result for {}: {}'.format(problem, result))
+                result_form = Results.objects.create(email=email, created=datetime.now(), result=result)
+                result_form.save()
 
-            if request.user.is_authenticated:
+                logger.info('AUTH: {}'.format(user))
+
                 return render(request, "results_detection.html", {'form': raw_detection_form,
                                                                   'result': result,
                                                                   'problem': problem
                                                                   }
                               )
-            else:
+            except User.DoesNotExist:
                 return redirect('/subscribe/')
         else:
             return HttpResponse('image upload failed with errors: {}'.format(form.errors))

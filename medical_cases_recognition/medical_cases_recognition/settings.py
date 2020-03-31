@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'medical_cases_recognition.apps.home',
     'medical_cases_recognition.apps.departments',
-    'medical_cases_recognition.apps.detection'
+    'medical_cases_recognition.apps.detection',
+    'medical_cases_recognition.apps.subscribe'
+
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+#AUTH_USER_MODEL = "subscribe.Subscriber"
 
 ROOT_URLCONF = 'medical_cases_recognition.urls'
 
