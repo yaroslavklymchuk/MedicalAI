@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import DetectionModel
+from .models import Detection
 
-admin.site.register(DetectionModel)
+admin.site.register(Detection)

@@ -67,31 +67,13 @@
                     <h2>Detection Page</h2>
                     <div class="page_link">
                         <a href="{% url 'home' %}">Home</a>
-                        <a href="{% url 'detection' %}">Detection</a>
+                        <a href="{% url 'subscribe' %}">Subscribe</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!--================End Banner Area =================-->
-
-    <!--================Contact Area =================-->
-<section class="contact_area p_120">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9">
-                    <form method="post" enctype="multipart/form-data">
-                        {{ form.as_p }}
-                        {% csrf_token %}
-                        <div class="col-md-12 text-right">
-                            <button type="submit" value="submit" class="btn submit_btn">Send Request</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================Contact Area =================-->
 
     <!--================Contact Success and Error message Area =================-->
     <div id="success" class="modal modal-message fade" role="dialog">

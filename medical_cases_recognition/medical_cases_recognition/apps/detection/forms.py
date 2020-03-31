@@ -1,11 +1,11 @@
 from django import forms
-from .models import DetectionModel, ResultsModel
+from .models import Detection, Results
 
 
 class DetectionForm(forms.ModelForm):
 
     class Meta:
-        model = DetectionModel
+        model = Detection
         exclude = [""]
 
     def __init__(self, *args, **kwargs):
@@ -18,7 +18,7 @@ class DetectionForm(forms.ModelForm):
 class ResultsForm(forms.ModelForm):
 
     class Meta:
-        model = ResultsModel
+        model = Results
         exclude = [""]
 
     def __init__(self, *args, **kwargs):

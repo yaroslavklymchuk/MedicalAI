@@ -25,7 +25,8 @@ urlpatterns = [
     url(r'^home/', include('medical_cases_recognition.apps.home.urls')),
     url(r'^departments/', include('medical_cases_recognition.apps.departments.urls')),
     url(r'^services/', include('medical_cases_recognition.apps.services.urls')),
-    url(r'^detection/', include('medical_cases_recognition.apps.detection.urls'))
+    url(r'^detection/', include('medical_cases_recognition.apps.detection.urls')),
+    url(r'^subscribe/', include('medical_cases_recognition.apps.subscribe.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

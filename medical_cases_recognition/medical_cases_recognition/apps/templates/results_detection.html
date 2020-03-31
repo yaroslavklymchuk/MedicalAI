@@ -30,7 +30,7 @@
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<a class="navbar-brand logo_h" href="index.html">
-						<img src="../../static/img/logo.png" alt="">
+						<img src="../../static/img/new_logo.jpg" alt="", width="150", height="110">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 					 aria-expanded="false" aria-label="Toggle navigation">
@@ -83,7 +83,7 @@
                     {% if problem == 'Pneumonia' %}
                     <img src="../../static/img/pneumonia.jpg" width="300" height="350" style="float: right">
                         <div style="clear: left">
-                    <h3>Examination revealed that the patient had {{ result }}.</h3>
+                    <h3>Examination revealed that the patient have {{ result }}.</h3>
                             {% if result ==  'Pneumonia'%}
                     <h3>Contact your doctor immediately.</h3>
                                 {% else %}
@@ -94,7 +94,7 @@
                     {% if problem == 'Diabetic' %}
                     <img src="../../static/img/diabet.jpg" width="300" height="350" style="float: right">
                          <div style="clear: left">
-                    <h3>Examination revealed that the patient had {{ result }}.</h3>
+                    <h3>Examination revealed that the patient have {{ result }}.</h3>
                             {% if result !=  'No DR'%}
                     <h3>Contact your doctor immediately.</h3>
                                 {% else %}
@@ -105,7 +105,7 @@
                 {% if problem == 'Hemorrhage' %}
                     <img src="../../static/img/hemorrhage.jpg" width="300" height="350" style="float: right">
                          <div style="clear: left">
-                    <h3>Examination revealed that the patient had {{ result }}.</h3>
+                    <h3>Examination revealed that the patient have {{ result }}.</h3>
                             {% if result !=  'No Hemorrhage' %}
                     <h3>Contact your doctor immediately.</h3>
                                 {% else %}
